@@ -6,7 +6,7 @@ def generate_html_for_directory(directory_path):
     """
     Generates an HTML representation of the given directory path, excluding hidden files and directories.
     Converts Markdown files to HTML and includes only the generated HTML files in the index.
-    Correctly sets the file extension for HTML files in the links.
+    Adjusts paths for files in subdirectories.
     """
     html_content = "<html><head><title>Directory Listing</title></head><body>"
     html_content += "<h1>Directory Listing</h1>"
@@ -26,6 +26,9 @@ def generate_html_for_directory(directory_path):
 
         for file in files:
             file_path = os.path.join(root, file)
+            # Adjust the file path for files in subdirectories
+            file_web_path = f"{relative_path}/{file}" if relative_path != "." else file
+
             # Convert Markdown files to HTML
             if file.endswith(".md"):
                 # Read the markdown file content
@@ -39,22 +42,12 @@ def generate_html_for_directory(directory_path):
                 # Save the HTML file, replacing if it exists
                 with open(html_file_path, "w", encoding="utf-8") as html_file:
                     html_file.write(html_converted)
-                # Construct relative file path for hyperlink
-                file_web_path = (
-                    os.path.join(relative_path, html_file_name)
-                    if relative_path != "."
-                    else html_file_name
-                )
-                # Add the link to the HTML file in the index
+                # Add the link to the HTML file in the index, including subdirectory in the path
                 html_content += (
                     f"<li><a href='{file_web_path}'>{html_file_name}</a></li>"
                 )
-            elif file.endswith(".html"):
-                # Construct relative file path for hyperlink
-                file_web_path = (
-                    os.path.join(relative_path, file) if relative_path != "." else file
-                )
-                # Link to HTML files directly
+            elif file.endswith(".html") or not file.endswith(".md"):
+                # Link to HTML and other non-Markdown files directly, including subdirectory in the path
                 html_content += f"<li><a href='{file_web_path}'>{file}</a></li>"
 
         if relative_path != ".":
