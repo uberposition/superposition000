@@ -25,6 +25,8 @@ def generate_html_for_directory(directory_path):
 
         for file in files:
             file_path = os.path.join(root, file)
+            # Construct relative file path for hyperlink
+            file_web_path = os.path.join(relative_path, file).replace("\\", "/")
             # Convert Markdown files to HTML
             if file.endswith(".md"):
                 # Read the markdown file content
@@ -38,13 +40,13 @@ def generate_html_for_directory(directory_path):
                 # Save the HTML file, replacing if it exists
                 with open(html_file_path, "w", encoding="utf-8") as html_file:
                     html_file.write(html_converted)
-                # Add the link to the HTML file in the index
+                # Add the link to the HTML file in the index, with relative path
                 html_content += (
-                    f"<li><a href='{html_file_name}'>{html_file_name}</a></li>"
+                    f"<li><a href='{file_web_path}'>{html_file_name}</a></li>"
                 )
             elif not file.endswith(".html"):
-                # Link to non-HTML files directly
-                html_content += f"<li><a href='{file}'>{file}</a></li>"
+                # Link to non-HTML files directly, with relative path
+                html_content += f"<li><a href='{file_web_path}'>{file}</a></li>"
 
         if relative_path != ".":
             html_content += "</ul>"
@@ -66,4 +68,4 @@ output_path = (
 with open(output_path, "w", encoding="utf-8") as file:
     file.write(html_content)
 
-# Note: Ensure the 'markdown' module is installed in your local environment
+#
