@@ -28,7 +28,7 @@ def generate_html_for_directory(directory_path):
             file_path = os.path.join(root, file)
             # Correctly format the file path
             formatted_path = os.path.join(relative_path, file).replace("\\", "/")
-            file_web_path = f"/superposition000/{formatted_path}"
+            file_web_path = f"superposition000/{formatted_path}"
             # Convert Markdown files to HTML
             if file.endswith(".md"):
                 # Read the markdown file content
