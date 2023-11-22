@@ -1,0 +1,52 @@
+<hr />
+<h1>Metadata</h1>
+<p>date: "2023-11-22"
+author: superQ
+document_type: toolDocumentation
+tags: [Python, Script, HTML, Index Generation]</p>
+<hr />
+<h1>GenerateIndexHTML.py</h1>
+<h2>Overview</h2>
+<ul>
+<li>This script is designed to generate an index HTML file from a specified source directory.</li>
+<li>It's used to automate the creation of a structured HTML file that lists all files and directories in the source location.</li>
+<li>Key features include automatic scanning of directory contents, HTML template rendering, and optional sorting functionalities.</li>
+</ul>
+<h2>Script Functionality</h2>
+<ul>
+<li>Scans a specified directory to identify all files and subdirectories.</li>
+<li>Utilizes a predefined HTML template to format the output.</li>
+<li>Offers options to sort the listed items alphabetically, by file type, or by date modified.</li>
+<li>Generates a single index.html file that provides a navigable view of the directory's contents.</li>
+</ul>
+<h2>Purpose</h2>
+<ul>
+<li>The primary purpose of this script is to streamline the creation of an index HTML file for directory listings.</li>
+<li>It provides a user-friendly interface to browse directory contents, useful for internal documentation and project management.</li>
+</ul>
+<h2>Usage</h2>
+<ul>
+<li>Run the script with the command <code>python generateIndexHTML.py &lt;source_directory_path&gt;</code>.</li>
+<li>Optional arguments can be provided for sorting preferences.</li>
+<li>Ensure that the script has read access to the specified directory and write access to the output location.</li>
+<li>Common use case scenario: Generating an index file for the <code>superPosition/lab</code> directory to facilitate easy navigation.</li>
+</ul>
+<h2>Output Example</h2>
+<ul>
+<li>The output is an <code>index.html</code> file with a structured, navigable list of files and directories.</li>
+<li>Sample output for a directory containing <code>README.md</code>, <code>script.py</code>, and <code>data</code> folder:</li>
+</ul>
+<p>```html
+<br />
+<ul>
+    <li><a href="README.md">README.md</a></li>
+    <li><a href="script.py">script.py</a></li>
+    <li><a href="data/">data</a></li>
+  </ul></p>
+<p>```</p>
+<h2>Notes</h2>
+<ul>
+<li>The script does not currently support deep scanning of nested directories.</li>
+<li>For large directories, the script may take longer to execute.</li>
+<li>Future updates may include more advanced sorting options and enhanced HTML templates.</li>
+</ul>
