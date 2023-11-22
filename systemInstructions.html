@@ -1,0 +1,278 @@
+<hr />
+<h1>Metadata</h1>
+<p>date: "2023-11-16"
+author: "RH"
+documentType: "mainConfiguration"</p>
+<hr />
+<h1>System Instructions</h1>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#system-instructions">System Instructions</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#configuration-and-instructions">Configuration and Instructions</a></li>
+<li><a href="#directory">Directory</a></li>
+<li><a href="#naming-convention">Naming Convention</a></li>
+<li><a href="#parsing">Parsing</a></li>
+<li><a href="#metadata">Metadata</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#audit">Audit</a></li>
+</ul>
+<h2>Introduction</h2>
+<p><strong>What's this document?</strong></p>
+<p>This document serves as the foundational blueprint of our directory and its associated processes. It outlines our vision for a comprehensive and integrated system, aimed at simplifying navigation, parsing, and processing of various documents and files within the corresponding directory. This document is not yet a completed configuration; it represents an evolving framework that will be developed and refined over time.</p>
+<p>As we progress, each aspect of this system – from the directory structure and naming conventions to parsing rules, metadata management, documentation standards, code guidelines, and audit processes – will be continually assessed, enhanced, and adapted to meet our dynamic needs. The goal is to create a cohesive understanding and provide a holistic view of the custom system that we are cultivating.</p>
+<p>This living document covers the following aspects, each of which will have its own subsection within the "Configuration and Instructions" section:</p>
+<ul>
+<li><strong>Directory:</strong> Outlines the proposed structure and logic to enhance navigation and clarity.</li>
+<li><strong>Naming Convention:</strong> Drafts preliminary guidelines for naming various documents, files, and code scripts.</li>
+<li><strong>Parsing:</strong> Suggests methods for structuring and interpreting markdown documents.</li>
+<li><strong>Metadata:</strong> Describes the envisioned metadata framework and its potential applications.</li>
+<li><strong>Documentation:</strong> Lays out initial approaches and templates for various types of documentation.</li>
+<li><strong>Code:</strong> Begins to define coding standards and practices that align with our framework.</li>
+<li><strong>Audit:</strong> Sketches out the initial concepts for version history and change log management systems.</li>
+</ul>
+<p>Each of these components is subject to further development and refinement as we progress in finalizing our document during the completion phase.</p>
+<h2>Configuration and Instructions</h2>
+<h3>Directory</h3>
+<p><strong>Overview:</strong></p>
+<p>The directory serves as the backbone of our organizational system, ensuring seamless navigation and efficient management of all projects and documentation.</p>
+<p><strong>Main Directory Contents:</strong></p>
+<ul>
+<li><code>headquarters.md</code>: Outlines the company's details, mission and vision, risk and reward, strategic initiatives, and org structure.</li>
+<li><code>systemInstructions.md</code>: Acts as a comprehensive guide, detailing the directory's usage, document processing, and navigation procedures.</li>
+</ul>
+<p><strong>Sub-Directories:</strong></p>
+<ul>
+<li><code>lab</code>: Each strategic initiative identified in <code>headquarters.md</code> has a dedicated sub-directory here. It's a hub for defining initiatives, managing projects, and storing all relevant working documents and files.</li>
+<li><code>timeMachine</code>: A repository for all historical records, including technical and code documentation, archived documents, and project retrospectives.</li>
+<li><code>tools</code>: Serves as a centralized repository for all the framework tools that will be developed over time such as directory tools, system tools, framework extensions, etc...</li>
+</ul>
+<p><strong>Visual Directory Map:</strong></p>
+<ul>
+<li>Headquarters.md</li>
+<li>systemInstructions.md</li>
+<li>lab</li>
+<li>timeMachine</li>
+<li>documentation</li>
+<li>tools</li>
+<li>generateMarkdownTree.py</li>
+</ul>
+<p><strong>Example File Paths:</strong></p>
+<ul>
+<li><strong>Main Directory:</strong> <code>~/superPosition/</code>.</li>
+<li><strong>Headquarters Document:</strong> <code>~/superPosition/Headquarters.md</code>.</li>
+<li><strong>System Development Initiative's Lab:</strong> <code>~/superPosition/lab/systemDevelopmentLab/</code>.</li>
+<li><strong>Technical Documentation Directory:</strong> <code>~/superPosition/timeMachine/documentation/technicalDocumentation</code>.</li>
+</ul>
+<h3>Naming Convention</h3>
+<p><strong>General Rules:</strong></p>
+<ul>
+<li><strong>Capitalization</strong>: Use <code>pascalCase</code> for multi-word names. Single-word names should be lowercase, except for prioritized files, which start with a capital letter.</li>
+<li><strong>Prioritization</strong>: Files of high importance begin with a capitalized letter. When ordering is necessary, use a numeric prefix (e.g., <code>01_</code>, <code>02_</code>) to indicate sequence or priority. Two files with the same number means that the files have the same priority within the directory.</li>
+<li><strong>Brevity and Descriptiveness</strong>: Names should be short yet descriptive, reflecting the file's content or purpose clearly.</li>
+<li><strong>Code Scripts</strong>: Adopt an action-oriented naming style. Examples: <code>generateToC.py</code>, <code>convertMarkdownToPDF.py</code>.</li>
+</ul>
+<p><strong>Naming Examples:</strong></p>
+<ul>
+<li>Correct: <code>Headquarters.md</code> (if prioritized), <code>systemInstructions.md</code>, <code>timeMachine</code>, <code>validateMVP.md</code>, <code>01_developMVP</code>.</li>
+<li>Wrong: <code>System_instructions.md</code>, <code>time_machine</code>, <code>Validte.MVP.md</code>, <code>01Develop_MVP</code>, <code>1_develop_mvp</code>.</li>
+</ul>
+<p><strong>Special Cases and Examples:</strong></p>
+<ul>
+<li><strong>Acronyms and Industry Terms:</strong> Maintain standard capitalization (e.g., <code>JSONparser.py</code>).</li>
+<li><strong>File Types:</strong> These conventions apply to all files, including documents, scripts, and images.</li>
+</ul>
+<h3>Parsing</h3>
+<p><strong>YAML Front Matter:</strong></p>
+<ul>
+<li>Every document begins with a YAML Front Matter section, identified by triple-dashed lines (<code>---</code>)at the start and end. This section includes essential metadata like the author, document type, tags, among other information (further defined in the metadata section below).</li>
+</ul>
+<p><strong>Document Structure:</strong></p>
+<ul>
+<li><strong>Document Title:</strong> Each document features a primary title marked as an H1 heading (<code># Title</code>) used only once at the beginning of the document and right after the metadata front matter section.</li>
+<li><strong>Introduction Section:</strong> Following the tile, each document starts with an H2 heading (<code>## Introduction</code>), offering an overview and context of the document.</li>
+<li><strong>Sections and Sub-Sections:</strong></li>
+<li>The document is organized into sections (H2 headings, <code>##</code>) and sub-sections (H3 to H6 headings,. <code>###</code> to <code>######</code>).</li>
+<li>A section or sub-section starts with its heading and concludes at the beginning of the next section (or sub-section) of the same or higher level.</li>
+</ul>
+<p><strong>Content Formatting:</strong></p>
+<ul>
+<li><strong>List-Based Format:</strong> The documents primarily use a list-based format for clarity and ease of parsing, especially for complex sections.</li>
+<li><strong>Special Instructions:</strong> Sections with complex structures include specific parsing instructions at their beginning.</li>
+</ul>
+<p><strong>Text Connotations:</strong></p>
+<ul>
+<li><strong>Bold Text(<code>**text**</code>)</strong>: Used for emphasizing important terms, variables, and attributes.</li>
+<li><strong>Attribute and Value Definition:</strong></li>
+<li>Standard attribute definition: <code>&lt;!--Attribute--&gt;</code>value``.</li>
+<li>Hidden attribute/value definition: <code>&lt;!--attribute</code>value<code>--&gt;</code>.</li>
+<li><strong>Examples:</strong></li>
+<li>Color attribute: <code>&lt;!--thisColor--&gt;</code>Blue``</li>
+<li>Section End: <code>&lt;!--sectionEnd</code>Introduction```</li>
+<li>Instructional note: <code>&lt;!--chatGPT</code>summarize this section``</li>
+</ul>
+<p><strong>Tone and Style:</strong></p>
+<ul>
+<li>Maintain a concise, informative style with bulleted lists for easy digestion and clarity.</li>
+<li>Ensure the content is accessible and straightforward, optimized for both human readers and automated parsing/processing.</li>
+<li>Use simple language to avoid complexity and confusion.</li>
+<li>Avoid excessive nesting of sections and sub-sections to maintain readability.</li>
+<li>Strive for completeness in information while avoiding redundancy.</li>
+</ul>
+<h3>Metadata</h3>
+<p><strong>Overview:</strong>
+Metadata in our system plays a crucial role in organizing, formatting, and processing documents. It;s defined in the <code>YAML</code> Front Matter at the start of each document, enclosed by triple-dashed lines. The structured approach to metadata allows for efficient handling by both custom scripts and various tools.</p>
+<p><strong>Structure of Metadata:</strong></p>
+<ul>
+<li><strong>Front Matter:</strong> All documents begin with a YAML: front matter section that includes key metadata items and their values.</li>
+<li><strong>Usage:</strong> Metadata is essential for static site generators and other tools to correctly format and display documents.</li>
+<li><strong>Extraction and Automation:</strong> Our system is designed for easy extraction of metadata using Python scripts and existing tools, enhancing our ability to manage and utilize this data effectively.</li>
+</ul>
+<p><strong>Types of Metadata:</strong></p>
+<ul>
+<li><strong>Global Metadata:</strong></li>
+<li><strong>Purpose:</strong> Sets system-wide defaults and templates.</li>
+<li><strong>Management:</strong> It's centrally managed and updated, with preset values standard across all documents.</li>
+<li><strong>Database Link:</strong> Updates and information on global metadata can be found in our <a href="https://docs.google.com/spreadsheets/d/1MBcI2KwG9UkHH0Snlp5Qs-uinSISRUUgqJj-HrFUzC8/edit#gid=0">Google Sheets Metadata Database</a></li>
+<li><strong>Project-Specific Metadata:</strong></li>
+<li>To be defined if and when the need arises.</li>
+</ul>
+<p><strong>Metadata Workflows:</strong></p>
+<ul>
+<li><strong>Accuracy and Efficiency:</strong> Regular Python scripts are employed to check and refine metadata, aiming for at least 95% accuracy in definitions.</li>
+<li><strong>Future Plans:</strong> We intend to automate the process of metadata definition and make real-time adjustments, continually enhancing the accuracy and efficiency of our metadata usage.</li>
+</ul>
+<h3>Documentation</h3>
+<p><strong>Documentation Organization:</strong></p>
+<ul>
+<li><strong>Location:</strong> All documentation is housed within the <code>superPosition/timeMachine/documentation</code> directory.</li>
+<li><strong>Sub-Directories:</strong></li>
+<li><code>technicalDocumentation</code>: Contains documentation related to technical aspects of projects.</li>
+<li><code>codeDocumentation</code>: Focuses on code-level documentation.</li>
+<li><code>toolsDocumentation</code>: Dedicated to documenting the various framework tools.</li>
+<li><strong>Aggregation:</strong></li>
+<li><code>toolsDocumentation</code> is organized by categories like <code>systemAndDirectoryTools</code>, <code>mediaTools</code>, etc...</li>
+<li>Documentation for code, libraries, and technical aspects are grouped by individual projects.</li>
+<li><strong>Naming Conventions:</strong> Documentation files are named based on their content, following patterns like <code>libraryTopicName</code>, <code>configureTopicName</code>, <code>useTopicName</code>.</li>
+<li><strong>Metadata:</strong> Refer to global metadata for further details on documentation types and standards.</li>
+</ul>
+<p><strong>Documentation Methodologies:</strong></p>
+<ul>
+<li><strong>Open Canvas Defined Structure:</strong></li>
+<li><strong>Categorization:</strong> Technical documentation is divided into types such as <code>howToUse</code>, <code>howToConfigure</code>, and <code>libraryDocumentation</code>.</li>
+<li><strong>Accessibility and Clarity:</strong> This approach emphasizes ease of access and understanding, aligning with a universal structure for both human and machine interpretation.</li>
+<li><strong>Predefined Structure Template:</strong></li>
+<li><strong>Template Utilization:</strong> For consistent and structured code script documentation, we employ a predefined template. This template is used as a guideline for documenting scripts, tools, and systems.</li>
+</ul>
+<p><strong>Template Outline:</strong></p>
+<p>```markdown
+<strong>Overview:</strong></p>
+<ul>
+<li>A brief introduction to the script or tool.</li>
+<li>Context on when and why it would be used.</li>
+<li>Any key features or functionalities that stand out.</li>
+</ul>
+<p><strong>Script Functionality:</strong></p>
+<ul>
+<li>A detailed explanation of what the script does.</li>
+<li>Information on any algorithms, data structures, or technologies used.</li>
+<li>Dependencies, if any.</li>
+</ul>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>The problem or challenge the script aims to solve.</li>
+<li>The value or benefit it provides to the user or system.</li>
+</ul>
+<p><strong>Usage:</strong></p>
+<ul>
+<li>Step-by-step instructions on how to use the script or tool.</li>
+<li>Any configurations or settings that need to be adjusted.</li>
+<li>Common use case scenarios.</li>
+</ul>
+<p><strong>Output Example:</strong></p>
+<ul>
+<li>Sample outputs the user can expect.</li>
+<li>Screenshots or code snippets showing the output.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Any important remarks, limitations, or considerations the user should be aware of.</li>
+<li>Tips for troubleshooting common issues.</li>
+<li>Links to related documentation or resources.
+```</li>
+</ul>
+<h3>Code</h3>
+<p><strong>Code Development Principles:</strong></p>
+<ul>
+<li><strong>Clarity and Simplicity:</strong> Write code that is easy to read and understand. Prioritize simplicity over complexity, making it accessible for future reviews and updates.</li>
+<li><strong>Modularity:</strong> Develop code in modular segments, allowing for reusable and maintainable code structures.</li>
+<li><strong>Documentation:</strong> Every script or code module must be accompanied by comprehensive documentation as outlined in the Documentation section.</li>
+<li><strong>Version Control:</strong> All code must be maintained under version control systems, with clear commit messages and proper branching strategies.</li>
+</ul>
+<p><strong>Naming and Structuring:</strong></p>
+<ul>
+<li><strong>File Naming:</strong> Follow the Naming Convention section for consistent naming of scripts and code files.</li>
+<li><strong>Directory Structure:</strong> Code related to specific projects should be placed in respective project directories within the lab. Shared or common code resides in a designated common directory.</li>
+</ul>
+<p><strong>Coding Standards:</strong></p>
+<ul>
+<li><strong>Language Specific Guidelines:</strong> Adhere to language-specific best practices and style guides (e.g., PEP 8 for Python).</li>
+<li><strong>Error Handling:</strong> Implement robust error handling and input validation to ensure code reliability and security.</li>
+<li><strong>Performance Optimization:</strong> Write code that is optimized for performance, avoiding unnecessary resource consumption.</li>
+</ul>
+<p><strong>Testing and Quality Assurance:</strong></p>
+<ul>
+<li><strong>Unit Testing:</strong> Incorporate unit tests for each module or function, ensuring code reliability and ease of future changes.</li>
+<li><strong>Code Reviews:</strong> Regular code reviews must be conducted to maintain code quality and adherence to best practices.</li>
+<li><strong>Continuous Integration:</strong> Utilize continuous integration tools to automate testing and ensure seamless integration of new code.</li>
+</ul>
+<p><strong>Deployment and Maintenance:</strong></p>
+<ul>
+<li><strong>Deployment Practices:</strong> Follow standardized procedures for code deployment, including testing in staging environments before production deployment.</li>
+<li><strong>Maintenance and Updates:</strong> Regularly update code for optimizations, bug fixes, and compatibility with evolving technologies.</li>
+</ul>
+<p><strong>Code Collaboration and Sharing:</strong></p>
+<ul>
+<li><strong>Code Sharing:</strong> Encourage code sharing and reuse within the organization. Utilize internal repositories for accessible code libraries.</li>
+<li><strong>Collaborative Development:</strong> Promote collaborative development practices, including pair programming and peer review sessions.</li>
+</ul>
+<p><strong>Security and Compliance:</strong></p>
+<ul>
+<li><strong>Security Best Practices:</strong> Ensure that all code complies with security best practices to safeguard against vulnerabilities.</li>
+<li><strong>Compliance:</strong> Adhere to relevant industry standards and legal requirements related to software development.</li>
+</ul>
+<h3>Audit</h3>
+<p><strong>Overview:</strong>
+This section of the "Audit and Version Control" outlines our initial vision for a robust system designed to manage version history and change logs. It's important to note that this is not yet a completed configuration but rather a blueprint for what we aim to achieve. As our project evolves, so too will our approach to version control and auditing. We will continually refine our methods, integrating new technologies and strategies to better align with our project management and implementation framework.</p>
+<p>The concepts and requirements laid out here represent the foundational steps toward developing a comprehensive audit system. This system will not only track changes and preserve versions but also incorporate advanced features like live tracking and custom change logging, tailored to our unique framework needs.</p>
+<p><strong>Key Requirements:</strong></p>
+<ul>
+<li><strong>Version Preservation:</strong> Each file save will automatically retain its previous version, allowing for comprehensive version tracking over time.</li>
+<li><strong>Live Tracking:</strong> Implement a custom tracking system for specific sections in <code>projectDocument</code> using the uniform structure to facilitate precise monitoring of changes.</li>
+<li><strong>Change Logging:</strong> Employ a detailed change logging system, tailored with different configurations for diverse file types to capture significant modifications effectively.</li>
+<li><strong>Custom Python Environment:</strong> Develop a specialized Python environment focused on tracking activities and changes within the custom framework's directory.</li>
+<li><strong>Initial Strategy:</strong> Start with simple methods, like saving document copies in the <code>timeMachine/archive</code> directory, and gradually transition to more sophisticated, structured database solutions.</li>
+<li><strong>Progressive Development:</strong> Additional requirements and system details will be refined and finalized during the completion phase of this document.</li>
+</ul>
+<p><strong><code>redbox</code> Collaborative Management Platform:</strong></p>
+<ul>
+<li><strong>Functionality:</strong></li>
+<li>The <code>redbox</code> feature acts as a collaborative interface where Python scripts aggregate objectives, with <code>GPT</code> providing insights on optimal progress paths, identifying blockers, and prerequisites.</li>
+<li>It streamlines project management by listing objectives, tracking changes, and integrating basic machine learning for increased efficiency.</li>
+<li><strong>Benefits:</strong></li>
+<li>Serves as a central hub for collaborative work, reducing management overhead and focusing on objective completion.</li>
+<li>Enhances project management by visualizing work progress and linking objectives to file version histories.</li>
+</ul>
+<p><strong>Use Case Scenarios:</strong></p>
+<ul>
+<li><strong>Reconstructing Work Progress:</strong></li>
+<li>Utilize detailed tracking to visualize the evolution of work, connecting objectives with corresponding file versions and their histories.</li>
+<li><strong>Automated Time Assignment:</strong></li>
+<li>Combine framework capabilities with <code>GPT</code> and machine learning to automate time estimations for tasks, aiding in effective sprint planning.</li>
+<li><strong>Comprehensive Performance Tracking:</strong></li>
+<li>Enable in-depth performance tracking and decision-making alignment with organizational goals, including ROI analysis on individual contributions.</li>
+<li><strong>Evolving System:</strong></li>
+<li>These initial use cases are starting points, meant to evolve and expand as the system develops and technology advances.</li>
+</ul>

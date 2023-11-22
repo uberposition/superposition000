@@ -1,0 +1,25 @@
+<h1>Create Python App</h1>
+<ul>
+<li>Install PyInstaller via pip if not already installed</li>
+</ul>
+<p><code>bash
+pip install PyInstaller</code></p>
+<ul>
+<li>Navigate to your project directory</li>
+<li>Create a virtual environment and install your project's dependencies.</li>
+</ul>
+<p><code>bash
+python3 -m venv myenv
+source myenv/bin/activate</code></p>
+<ul>
+<li>Run PyInstaller with the appropriate flags to bundle the app and dependencies.</li>
+<li>Test the bundled app to ensure it works as expected.</li>
+<li>Might need to run the following command:</li>
+</ul>
+<p><code>bash
+conda remove pathlib</code></p>
+<ul>
+<li>Wrap the script using the following command:</li>
+</ul>
+<p><code>bash
+pyinstaller --onefile scriptName.py</code></p>

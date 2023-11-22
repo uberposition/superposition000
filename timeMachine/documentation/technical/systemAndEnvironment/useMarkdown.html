@@ -1,0 +1,262 @@
+<hr />
+<h1>Metadata</h1>
+<p>date: "2023-10-28"
+author: "RH"
+documentType: "howToUse"
+linkedTo: "headquarters.md"</p>
+<hr />
+<h1>Markdown How to Use Technical Documentation</h1>
+<h2>Introduction</h2>
+<ul>
+<li>This document is a guide on how to format a selection of advanced markdown elements.</li>
+<li>Different aspects will have different sections within the <code>Instructions</code> section below.</li>
+<li>For preview purposes, the mermaid code is listed twice in the <code>Create Flowcharts</code> section.</li>
+<li>Also for the <code>Create Flowcharts</code> section, there's one line break between the code and the chart.</li>
+<li>There are two line breaks between two separate examples or parts within the section.</li>
+<li>More sections and contents will be added over time.</li>
+</ul>
+<h3>What's Markdown?</h3>
+<ul>
+<li><strong>Lightweight and user-friendly syntax</strong>: designed for text styling.</li>
+<li><strong>Ideal for Diverse Documents</strong>: well-suited for creating diverse documents including code documentation.</li>
+<li><strong>Easily Convertible to HTML</strong>: can be effortlessly converted to structured HTML, making it suitable for web content creation.</li>
+<li><strong>Supports Metadata and Tagging</strong>: grants the ability to add non-visible metadata in a <code>yaml</code> metadata section that doesn't show in preview mode.</li>
+<li><strong>Can be parsed at Scale with Python</strong>: various Python libraries enable parsing of Markdown files which could be scaled depending on the setup.</li>
+<li><strong>Suitable for Machine Learning Documentation</strong>: can be very effective for machine learning use cases given its structure and the ability to add metadata.</li>
+<li><strong>Interactive Documentation with <code>ChatGPT</code></strong>: allows for chatting with your directory through providing <code>chatGPT</code> with the proper parsing instructions.</li>
+<li><strong>Ease of Learning</strong>: easy-to-learn syntax makes Markdown accessible, promoting its use especially in technical writing and software documentation spaces.</li>
+<li><strong>Cross-Platform Compatibility</strong>: high portability and compatibility across different platforms and tools.</li>
+<li><strong>Available Alternatives</strong>: <code>AsciiDoc</code>, <code>XML</code>, <code>reStructuredText</code>, <code>LaTeX</code>, <code>JSON</code>, CSV. Different solutions have different pros and cons on the machine X human compatibility balancing spectrum.</li>
+</ul>
+<h2>Instructions</h2>
+<h3>Create Flowcharts</h3>
+<p><code>"
+flowchart
+    Client
+    Server
+    Database</code></p>
+<p></br></p>
+<p><code>mermaid
+flowchart
+    Client
+    Server
+    Database</code></p>
+<p></br>
+</br></p>
+<p><code>"
+flowchart
+    Client --&gt; Server
+    Server --&gt; Database</code></p>
+<p></br></p>
+<p><code>mermaid
+flowchart
+    Client --&gt; Server
+    Server --&gt; Database</code></p>
+<p></br>
+</br></p>
+<p><code>"
+flowchart LR
+    Client --&gt; Server
+    Server --&gt; Database</code></p>
+<p></br></p>
+<p><code>mermaid
+flowchart LR
+    Client --&gt; Server
+    Server --&gt; Database</code></p>
+<p></br>
+</br></p>
+<p><code>"
+flowchart LR
+    Client --&gt; Server
+    Server --&gt; Database
+    Database -.-&gt; Server
+    Server -.-&gt; Client</code></p>
+<p></br></p>
+<p><code>mermaid
+flowchart LR
+    Client --&gt; Server
+    Server --&gt; Database
+    Database -.-&gt; Server
+    Server -.-&gt; Client</code></p>
+<p></br>
+</br></p>
+<p>```"
+flowchart LR
+    c[Client]
+    s[Server]
+    db[Database]</p>
+<pre><code>c -- HTTP GET --&gt; s
+s -- SQL Query --&gt; db
+db -. Result Set .-&gt; s
+s -. JSON .-&gt; c
+</code></pre>
+<p>```</p>
+<p></br></p>
+<p>```mermaid
+flowchart LR
+    c[Client]
+    s[Server]
+    db[Database]</p>
+<pre><code>c -- HTTP GET --&gt; s
+s -- SQL Query --&gt; db
+db -. Result Set .-&gt; s
+s -. JSON .-&gt; c
+</code></pre>
+<p>```</p>
+<p></br>
+</br></p>
+<p><code>"
+flowchart LR
+    Base --&gt; Arrow
+    Base ==&gt; Heavy
+    Base -.-&gt; Dotted
+    Base --- Line
+    Base --&gt; You --&gt; Can --&gt; Chain --&gt; Relations --&gt; On --&gt; One --- Line</code></p>
+<p></br></p>
+<p><code>mermaid
+flowchart LR
+    Base --&gt; Arrow
+    Base ==&gt; Heavy
+    Base -.-&gt; Dotted
+    Base --- Line
+    Base --&gt; You --&gt; Can --&gt; Chain --&gt; Relations --&gt; On --&gt; One --- Line</code></p>
+<p></br>
+</br></p>
+<p>```"
+flowchart LR
+    c[Client]
+    s[Server]
+    db[(Database)]</p>
+<pre><code>c -- HTTP GET --&gt; s
+s -- SQL Query --&gt; db
+db -. Result Set .-&gt; s
+s -. JSON .-&gt; c
+</code></pre>
+<p>```</p>
+<p></br></p>
+<p>```mermaid
+flowchart LR
+    c[Client]
+    s[Server]
+    db[(Database)]</p>
+<pre><code>c -- HTTP GET --&gt; s
+s -- SQL Query --&gt; db
+db -. Result Set .-&gt; s
+s -. JSON .-&gt; c
+</code></pre>
+<p>```</p>
+<p></br>
+</br></p>
+<p><code>"
+flowchart
+    a[Default]
+    b([Rounded])
+    c[(Database)]
+    d[[Subroutine]]
+    e((Circle))
+    f&gt;Note]
+    g{Decision}
+    h{{Hexagon}}
+    i[/Parallelogram/]
+    j(((Double Circle)))</code></p>
+<p></br></p>
+<p><code>mermaid
+flowchart
+    a[Default]
+    b([Rounded])
+    c[(Database)]
+    d[[Subroutine]]
+    e((Circle))
+    f&gt;Note]
+    g{Decision}
+    h{{Hexagon}}
+    i[/Parallelogram/]
+    j(((Double Circle)))</code></p>
+<p></br>
+</br></p>
+<p>```"
+flowchart LR
+    subgraph Azure
+        s[Server]
+        db[(Database)]
+    end
+    subgraph Netlify
+        c[Client]
+    end</p>
+<pre><code>c -- HTTP GET --&gt; s
+s -. JSON .-&gt; c
+db -. Result Set .-&gt; s
+s -- SQL Query --&gt; db
+</code></pre>
+<p>```</p>
+<p></br></p>
+<p>```mermaid
+flowchart LR
+    subgraph Azure
+        s[Server]
+        db[(Database)]
+    end
+    subgraph Netlify
+        c[Client]
+    end</p>
+<pre><code>c -- HTTP GET --&gt; s
+s -. JSON .-&gt; c
+db -. Result Set .-&gt; s
+s -- SQL Query --&gt; db
+</code></pre>
+<p>```</p>
+<p></br>
+</br></p>
+<p>```"
+flowchart LR
+    subgraph Azure
+        s[fa:fa-code Server]
+        db[(fa:fa-table Database)]
+    end
+    subgraph Netlify
+        c[fa:fa-user Client]
+    end</p>
+<pre><code>subgraph Netlify
+end
+subgraph Azure
+    direction LR
+end
+
+c -- HTTP GET --&gt; s
+s -- SQL Query --&gt; db
+db -. Result Set .-&gt; s
+s -. JSON .-&gt; c
+</code></pre>
+<p>```</p>
+<p></br></p>
+<p>```mermaid
+flowchart LR
+    subgraph Azure
+        s[fa:fa-code Server]
+        db[(fa:fa-table Database)]
+    end
+    subgraph Netlify
+        c[fa:fa-user Client]
+    end</p>
+<pre><code>subgraph Netlify
+end
+subgraph Azure
+    direction LR
+end
+
+c -- HTTP GET --&gt; s
+s -- SQL Query --&gt; db
+db -. Result Set .-&gt; s
+s -. JSON .-&gt; c
+</code></pre>
+<p>```</p>
+<h3>Add Links</h3>
+<p><code>"
+[Link_Name](Link goes here)</code></p>
+<p>Example:
+<a href="https://www.google.com">Google.com</a></p>
+<h2>Sources</h2>
+<h2>- <a href="https://dev.to/integerman/how-to-make-flowcharts-with-mermaidjs-1ooo">dev.to</a></h2>
+<h3>Add Image</h3>
+<p><code>"
+![Name](Link)</code></p>
