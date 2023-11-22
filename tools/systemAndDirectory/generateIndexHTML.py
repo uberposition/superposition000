@@ -5,8 +5,8 @@ import markdown
 def generate_html_for_directory(directory_path):
     """
     Generates an HTML representation of the given directory path, excluding hidden files and directories.
-    Converts Markdown files to HTML and includes only the generated HTML files in the index.
-    Adjusts paths for files in subdirectories and excludes original .md files.
+    Converts Markdown files to HTML. Only includes HTML files in the index and excludes original .md files.
+    Adjusts paths for files in subdirectories.
     """
     html_content = "<html><head><title>Directory Listing</title></head><body>"
     html_content += "<h1>Directory Listing</h1>"
@@ -26,11 +26,10 @@ def generate_html_for_directory(directory_path):
 
         for file in files:
             file_path = os.path.join(root, file)
-            # Adjust the file path for files in subdirectories
             file_web_path = f"{relative_path}/{file}" if relative_path != "." else file
 
             if file.endswith(".md"):
-                # Convert Markdown files to HTML
+                # Convert Markdown files to HTML and exclude them from the index
                 with open(file_path, "r", encoding="utf-8") as md_file:
                     md_content = md_file.read()
                 html_converted = markdown.markdown(md_content)
@@ -38,12 +37,8 @@ def generate_html_for_directory(directory_path):
                 html_file_path = os.path.join(root, html_file_name)
                 with open(html_file_path, "w", encoding="utf-8") as html_file:
                     html_file.write(html_converted)
-                # Include the generated HTML file in the index
-                html_content += (
-                    f"<li><a href='{file_web_path}'>{html_file_name}</a></li>"
-                )
             elif not file.endswith(".md"):
-                # Link to other files directly
+                # Include HTML and other files in the index
                 html_content += f"<li><a href='{file_web_path}'>{file}</a></li>"
 
         if relative_path != ".":
