@@ -6,7 +6,7 @@ def generate_html_for_directory(directory_path):
     """
     Generates an HTML representation of the given directory path, excluding hidden files and directories.
     Converts Markdown files to HTML and includes only the generated HTML files in the index.
-    Adjusts paths for files in subdirectories and excludes original .md files.
+    Adjusts paths for files in subdirectories.
     """
     html_content = "<html><head><title>Directory Listing</title></head><body>"
     html_content += "<h1>Directory Listing</h1>"
@@ -29,21 +29,25 @@ def generate_html_for_directory(directory_path):
             # Adjust the file path for files in subdirectories
             file_web_path = f"{relative_path}/{file}" if relative_path != "." else file
 
+            # Convert Markdown files to HTML
             if file.endswith(".md"):
-                # Convert Markdown files to HTML
+                # Read the markdown file content
                 with open(file_path, "r", encoding="utf-8") as md_file:
                     md_content = md_file.read()
+                # Convert to HTML
                 html_converted = markdown.markdown(md_content)
+                # Generate the HTML file name
                 html_file_name = f"{os.path.splitext(file)[0]}.html"
                 html_file_path = os.path.join(root, html_file_name)
+                # Save the HTML file, replacing if it exists
                 with open(html_file_path, "w", encoding="utf-8") as html_file:
                     html_file.write(html_converted)
-                # Include the generated HTML file in the index
+                # Add the link to the HTML file in the index, including subdirectory in the path
                 html_content += (
                     f"<li><a href='{file_web_path}'>{html_file_name}</a></li>"
                 )
-            elif not file.endswith(".md"):
-                # Link to other files directly
+            elif file.endswith(".html") or not file.endswith(".md"):
+                # Link to HTML and other non-Markdown files directly, including subdirectory in the path
                 html_content += f"<li><a href='{file_web_path}'>{file}</a></li>"
 
         if relative_path != ".":
@@ -55,6 +59,8 @@ def generate_html_for_directory(directory_path):
 
 # Example usage of the function
 directory_path = "../.."  # Replace with actual directory path
+
+# Generate HTML content
 html_content = generate_html_for_directory(directory_path)
 
 # Save the HTML content to an index.html file
